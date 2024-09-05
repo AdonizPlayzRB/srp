@@ -67,9 +67,9 @@ DATA_PATH = os.path.join(CAR_PATH, 'data_loop/images'+ today, tub_number)
 # 
 # #THROTTLE
 # THROTTLE_CHANNEL = 1            #channel on the 9685 pwm board 0-15
-# THROTTLE_FORWARD_PWM = 420      #pwm value for max forward throttle
-# THROTTLE_STOPPED_PWM = 370      #pwm value for no movement
-# THROTTLE_REVERSE_PWM = 340      #pwm value for max reverse throttle
+THROTTLE_FORWARD_PWM = 400      #pwm value for max forward throttle
+THROTTLE_STOPPED_PWM = 370      #pwm value for no movement
+THROTTLE_REVERSE_PWM = 340      #pwm value for max reverse throttle
 # 
 # #THROTTLE FOR PIGPIO_PWM
 # THROTTLE_PWM_PIN = 18           #Pin numbering according to Broadcom numbers
@@ -132,7 +132,7 @@ DATA_PATH = os.path.join(CAR_PATH, 'data_loop/images'+ today, tub_number)
 # # tensorflow models: (linear|categorical|tflite_linear|tensorrt_linear)
 # # pytorch models: (resnet18)
 # DEFAULT_MODEL_TYPE = 'linear'
-BATCH_SIZE = 1                #how many records to use when doing one pass of gradient decent. Use a smaller number if your gpu is running out of memory.
+BATCH_SIZE = 64                #how many records to use when doing one pass of gradient decent. Use a smaller number if your gpu is running out of memory.
 # TRAIN_TEST_SPLIT = 0.8          #what percent of records to use for training. the remaining used for validation.
 MAX_EPOCHS = 100                #how many times to visit all records of your data
 # SHOW_PLOT = True                #would you like to see a pop up display of final loss?
@@ -147,11 +147,11 @@ MAX_EPOCHS = 100                #how many times to visit all records of your dat
 # SEND_BEST_MODEL_TO_PI = False   #change to true to automatically send best model during training
 # CACHE_IMAGES = True             #keep images in memory. will speed succesive epochs, but crater if not enough mem.
 # 
-# PRUNE_CNN = False               #This will remove weights from your model. The primary goal is to increase performance.
-# PRUNE_PERCENT_TARGET = 75       # The desired percentage of pruning.
-# PRUNE_PERCENT_PER_ITERATION = 20 # Percenge of pruning that is perform per iteration.
-# PRUNE_VAL_LOSS_DEGRADATION_LIMIT = 0.2 # The max amout of validation loss that is permitted during pruning.
-# PRUNE_EVAL_PERCENT_OF_DATASET = .05  # percent of dataset used to perform evaluation of model.
+PRUNE_CNN = True               #This will remove weights from your model. The primary goal is to increase performance.
+PRUNE_PERCENT_TARGET = 75       # The desired percentage of pruning.
+PRUNE_PERCENT_PER_ITERATION = 5 # Percenge of pruning that is perform per iteration.
+PRUNE_VAL_LOSS_DEGRADATION_LIMIT = .05 # The max amout of validation loss that is permitted during pruning.
+PRUNE_EVAL_PERCENT_OF_DATASET = .05  # percent of dataset used to perform evaluation of model.
 # 
 # # Region of interst cropping
 # # only supported in Categorical and Linear models.
